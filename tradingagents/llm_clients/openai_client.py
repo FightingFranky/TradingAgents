@@ -29,6 +29,7 @@ _PROVIDER_CONFIG = {
     "xai": ("https://api.x.ai/v1", "XAI_API_KEY"),
     "openrouter": ("https://openrouter.ai/api/v1", "OPENROUTER_API_KEY"),
     "ollama": ("http://localhost:11434/v1", None),
+    "aliyun": ("https://coding.dashscope.aliyuncs.com/v1", "ALIYUN_API_KEY")
 }
 
 
@@ -63,6 +64,10 @@ class OpenAIClient(BaseLLMClient):
                 api_key = os.environ.get(api_key_env)
                 if api_key:
                     llm_kwargs["api_key"] = api_key
+                else: 
+                    # fallback pass env name, letting langchain default handle or fail gracefully
+                    # Since openai complains if no key, we provide a dummy fallback or let user know
+                    llm_kwargs["api_key"] = "dummy_key_if_env_not_found"
             else:
                 llm_kwargs["api_key"] = "ollama"
         elif self.base_url:

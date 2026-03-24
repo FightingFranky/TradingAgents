@@ -171,6 +171,16 @@ def select_shallow_thinking_agent(provider) -> str:
             ("GPT-OSS:latest (20B, local)", "gpt-oss:latest"),
             ("GLM-4.7-Flash:latest (30B, local)", "glm-4.7-flash:latest"),
         ],
+        "aliyun": [
+            ("Qwen 3.5 Plus (Text/Think/Vision)", "qwen3.5-plus"),
+            ("Qwen 3 Max 2026-01-23 (Text/Think)", "qwen3-max-2026-01-23"),
+            ("Qwen 3 Coder Next (Text)", "qwen3-coder-next"),
+            ("Qwen 3 Coder Plus (Text)", "qwen3-coder-plus"),
+            ("GLM 5 (Text/Think)", "glm-5"),
+            ("GLM 4.7 (Text/Think)", "glm-4.7"),
+            ("Kimi k2.5 (Text/Think/Vision)", "kimi-k2.5"),
+            ("MiniMax M2.5 (Text/Think)", "MiniMax-M2.5"),
+        ]
     }
 
     choice = questionary.select(
@@ -238,6 +248,16 @@ def select_deep_thinking_agent(provider) -> str:
             ("GPT-OSS:latest (20B, local)", "gpt-oss:latest"),
             ("Qwen3:latest (8B, local)", "qwen3:latest"),
         ],
+        "aliyun": [
+            ("Qwen 3.5 Plus (Text/Think/Vision)", "qwen3.5-plus"),
+            ("Qwen 3 Max 2026-01-23 (Text/Think)", "qwen3-max-2026-01-23"),
+            ("Qwen 3 Coder Next (Text)", "qwen3-coder-next"),
+            ("Qwen 3 Coder Plus (Text)", "qwen3-coder-plus"),
+            ("GLM 5 (Text/Think)", "glm-5"),
+            ("GLM 4.7 (Text/Think)", "glm-4.7"),
+            ("Kimi k2.5 (Text/Think/Vision)", "kimi-k2.5"),
+            ("MiniMax M2.5 (Text/Think)", "MiniMax-M2.5"),
+        ]
     }
 
     choice = questionary.select(
@@ -272,6 +292,7 @@ def select_llm_provider() -> tuple[str, str]:
         ("xAI", "https://api.x.ai/v1"),
         ("Openrouter", "https://openrouter.ai/api/v1"),
         ("Ollama", "http://localhost:11434/v1"),
+        ("Aliyun", "https://coding.dashscope.aliyuncs.com/v1"),
     ]
     
     choice = questionary.select(
