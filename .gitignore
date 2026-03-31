@@ -224,3 +224,4 @@ __marimo__/
 # Results
 results/*
 reports/*
+eval_results/*
